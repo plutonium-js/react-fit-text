@@ -1,0 +1,45 @@
+{
+	"name": "@plutonium-js/react-fit-text",
+	"version": "1.0.2",
+	"description": "React component that automatically fits the text to the element size. Ultra lightweight and efficient.",
+	"main": "dist/bundle.js",
+	"scripts": {
+		"start": "webpack --mode production --watch",
+		"build": "webpack --mode production"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/plutonium-js/react-fit-text"
+	},
+	"homepage": "https://plutonium.dev/wp/libraries/react-fit-text/",
+	"keywords": [
+		"textfit",
+		"fittext",
+		"fit",
+		"text",
+		"content",
+		"resize",
+		"react",
+		"component",
+		"react-component"
+	],
+	"author": "Jesse Dalessio",
+	"license": "MIT",
+	"peerDependencies": {
+		"react": "^15.0.0||^16.0.0",
+		"react-dom": "^15.0.0||^16.0.0"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.5.5",
+		"@babel/core": "^7.5.5",
+		"@babel/node": "^7.5.5",
+		"@babel/preset-env": "^7.5.5",
+		"@babel/preset-react": "^7.0.0",
+		"webpack": "^4.39.1",
+		"webpack-cli": "^3.3.6"
+	},
+	"dependencies": {
+		"react": "^16.8.6",
+		"react-dom": "^16.8.6"
+	}
+}

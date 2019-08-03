@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample - Input</title>
+    
+    <!-- page CSS -->
+    <style>
+      	body {background-color:#d9e2eb;color:black;}
+		body * {box-sizing:border-box;}
+		#root {position:fixed;width:100%;height:100%;}
+		#chrome {display:flex;flex-direction:column;position:absolute;width:80%;height:80%;top:0;bottom:0;left:0;right:0;margin:auto;}
+		#chrome #topBar {flex:0;min-height:100px;}
+		#chrome #topBar input {height:60px;width:100%;background-color:white;border:solid 2px #666;padding:10px;font-size:30px;}
+		#chrome #textArea {flex:1;max-height:90%;background-color:#EBF0F5;border:dashed 4px #666;}
+		#chrome #textArea .FitText {display:grid;height:100%;align-content:center;text-align:center;font-family:Impact, Charcoal, Sans-Serif;}
+	</style>
+
+</head>
+<body>
+
+	<!-- the sample app root container -->
+    <div id="root"></div>
+    
+	<!-- React and Babel from CDN -->
+	<script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+	<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+	<script src = "https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" crossorigin></script>
+	
+	<!-- react-fit-text component -->
+    <script src="https://cdn.jsdelivr.net/npm/@plutonium-js/react-fit-text@1/dist/bundle.js"></script>
+	<!-- sample script -->
+	<script type="text/babel">
+		//Input component (this is where we can input text to fit)
+		class Input extends React.Component{
+			constructor(props) {
+				super(props);
+				this.rootRef = React.createRef();
+				this.state = {
+					value:props.value
+				}
+			}
+			componentDidMount(){
+				this.rootRef.current.focus();
+			}
+			render() {
+				return <input
+					ref = {this.rootRef}
+					value = {this.state.value}
+					onChange = {e => {
+						this.setState({
+							value:e.target.value
+						});
+						if (this.props.onChange) this.props.onChange(e);
+					}}
+				/>
+			}
+		}
+		//the app
+		class App extends React.Component{
+			constructor(props) {
+				super(props);
+				this.state = {
+					text:"This Text Fits"
+				}
+			}
+			render() {
+				//create and render the App
+				const FitText = window["react-fit-text"].default;
+				return <div id="chrome">
+					<div id="topBar">
+						<Input onChange={e => this.setState({text:e.target.value})} value={this.state.text}/>
+					</div>
+					<div id="textArea">
+						<FitText>{this.state.text}</FitText>
+					</div>
+				</div>
+			}
+		}
+		//render the app
+		ReactDOM.render(<App/>, document.getElementById('root'));
+		
+	</script>
+	
+</body>
+</html>
