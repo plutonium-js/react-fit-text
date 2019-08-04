@@ -83,23 +83,21 @@ Add properties as needed (all properties are optional).
 ```jsx
 class App extends Component {
    render() {
-      return (
-         <FitText
-            minSize = {20}
-            maxSize = {200}
-            updateOnResize = {{
-               delay:0
-            }}
-            attributes = {{
-               id:'myId',
-               className:'myClassName',
-               style:{
-                  anyStyle:'myStyleValue'
-               },
-               'data-myData':'this is my data'
-            }}
-         >Add your text to fit here.</FitText>
-      );
+      return <FitText
+         minSize = {20}
+         maxSize = {200}
+         updateOnResize = {{
+            delay:0
+         }}
+         attributes = {{
+            id:'myId',
+            className:'myClassName',
+            style:{
+               anyStyle:'myStyleValue'
+            },
+            'data-myData':'this is my data'
+         }}
+      >Add your text to fit here.</FitText>;
    }
 }
 ```
@@ -115,17 +113,15 @@ The component has a default class name of 'FitText' which can be used to style t
 To add inline styles, custom class names, or an id use the 'attributes' property option in the JSX 'FitText' tag...
 ```jsx
 render() {
-   return (
-      <FitText
-         attributes = {{
-            id:'myId',
-            className:'myClassName',
-            style:{
-               anyStyle:'myStyleValue'
-            }
-         }}
-      >Add your text to fit here.</FitText>
-   );
+   return <FitText
+      attributes = {{
+         id:'myId',
+         className:'myClassName',
+         style:{
+            anyStyle:'myStyleValue'
+         }
+      }}
+   >Add your text to fit here.</FitText>;
 }
 ```
 
