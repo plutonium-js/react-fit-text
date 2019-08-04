@@ -5,7 +5,7 @@ An ultra lightweight React component that automatically fits text to the size of
    * Add any descendant content or React components
    * Optional auto update on resize
    * Optional resize update delay
-   * Add any attributes to the root element
+   * Supports 'id', 'className', and 'style' props
    * Optional min and max font size
 
 
@@ -29,7 +29,7 @@ An ultra lightweight React component that automatically fits text to the size of
 
 ### <a id="Installation"></a>Installation
 ```
-> npm install react-fit-text
+> npm install @plutonium-js/react-fit-text
 ```
 
 **[:arrow_up_small:](#bookmarks)**	
@@ -81,19 +81,16 @@ class App extends Component {
          updateOnResize = {{
             delay:0
          }}
-         attributes = {{
-            id:'myId',
-            className:'myClassName',
-            style:{
-               anyStyle:'myStyleValue'
-            },
-            'data-myData':'this is my data'
-         }}
+         id = "myId"
+         className = "myClassNames"
+         style = {{
+            myStyle:'myStyleValue'
+	     }}
       >Add your text to fit here.</FitText>;
    }
 }
 ```
-Min and max size is in pixels. The delay is in milliseconds. Any attributes can be added (attributes are added to the root element).
+Min and max size is in pixels. The delay is in milliseconds. The 'id', 'className', and 'style' props are added to the components root element.
 
 **[:arrow_up_small:](#bookmarks)**	
    
@@ -102,17 +99,15 @@ The component has a default class name of 'FitText' which can be used to style t
 ```css
 .FitText {position:relative;height:100%;}
 ```
-To add inline styles, custom class names, or an id use the 'attributes' property option in the JSX 'FitText' tag...
+The 'id', 'className', and 'style' props are added to the components root element.
 ```jsx
 render() {
    return <FitText
-      attributes = {{
-         id:'myId',
-         className:'myClassName',
-         style:{
-            anyStyle:'myStyleValue'
-         }
-      }}
+      id = "myId"
+      className = "myClassNames"
+      style = {{
+		myStyle:'myStyleValue'
+	  }}
    >Add your text to fit here.</FitText>;
 }
 ```

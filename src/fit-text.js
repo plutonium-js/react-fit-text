@@ -10,27 +10,25 @@ import PropTypes from 'prop-types';
 export class FitText extends React.Component{
 	constructor (props) {
 		super(props);
-		this.rootRef = React.createRef();
 		this.elms = {};
 		this.update = this.update.bind(this);
 	}
 	
 	render() {
 		return <div 
-			className = "FitText"
-			style = {{overflow:'hidden'}}
-			ref = {this.rootRef}
+			ref = {this.rootRef = React.createRef()}
+			id = {this.props.id}
+			className = {((this.props.className||'')+" FitText").trim()}
+			style = {Object.assign(this.props.style,{overflow:'hidden'})}
 		>{this.props.children}</div>;
 	}
 	
 	componentDidUpdate() {
-		this.addAttributes(this.elms.root);
 		this.update();
 	}
 	
 	componentDidMount() {
-		const rootElm = this.elms.root = this.rootRef.current;
-		this.addAttributes(rootElm);
+		this.elms.root = this.rootRef.current;
 		this.update();
 		if (this.props.updateOnResize) window.addEventListener("resize", this.update);
 	}
@@ -38,25 +36,6 @@ export class FitText extends React.Component{
 	componentWillUnmount() {
 		clearTimeout(this.timer);
 		window.removeEventListener("resize", this.update);
-	}
-	
-	//add attributes (e.g. className, id, data-?, whatever is defined in 'props.attributes' gets applied as an actual tag attribute)
-	addAttributes(elm) {
-		const attrs = this.props.attributes;
-		for (let i in attrs) {
-			let value = attrs[i]; if (value!=null) {
-				if (i==='className') {
-					//to be safe we add the class names vs. setting so we don't wipe out any existing set names
-					value.split(/ +/).forEach(item => elm.classList.add(item));
-				}
-				else if (i=='style') {
-					for (let i in value) elm.style[i] = value[i];
-				}
-				else {
-					elm.setAttribute(i, value);
-				}
-			}
-		}	
 	}
 	
 	//round a number to the specified number of decimal places
@@ -117,10 +96,10 @@ export class FitText extends React.Component{
 
 //prop types
 FitText.propTypes = {
-  minSize:PropTypes.number,
-  maxSize:PropTypes.number,
-  updateOnResize:PropTypes.object,
-  attributes:PropTypes.object
+	minSize:PropTypes.number,
+	maxSize:PropTypes.number,
+	updateOnResize:PropTypes.object,
+	attributes:PropTypes.object
 };
 
 //default props
