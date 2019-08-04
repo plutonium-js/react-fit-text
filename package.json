@@ -1,6 +1,6 @@
 {
 	"name": "@plutonium-js/react-fit-text",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "React component that automatically fits the text to the element size. Ultra lightweight and efficient.",
 	"main": "dist/bundle.js",
 	"scripts": {

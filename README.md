@@ -20,7 +20,6 @@ An ultra lightweight React component that automatically fits text to the size of
 * [Installation](#Installation)
 * [Usage](#Usage)
    * [Module](#Module)
-   * [Local Script Tags](#Local-Script-Tags)
    * [CDN Script Tags](#CDN-Script-Tags)
 * [Create Component](#create_component)
 * [Optional Properties](#optional_properties)
@@ -48,14 +47,7 @@ An ultra lightweight React component that automatically fits text to the size of
    const {FitText} = require('@plutonium-js/react-fit-text');
    ```
    
-* <a id="Local-Script-Tags"></a>**Local Script Tags**
-   
-   Add the component directly to a web page.
-   ```html
-   <script src="dist/bundle.js"></script>
-   ```
-
-* <a id="CDN-Script-Tags"></a>**CDN Script Tags**
+* <a id="CDN-Script-Tags"></a>**CDN Script Tag**
    
     Add the component directly to a web page.
    ```html
