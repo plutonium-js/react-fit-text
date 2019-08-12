@@ -13,26 +13,23 @@ export class FitText extends React.Component{
 		this.elms = {};
 		this.update = this.update.bind(this);
 	}
-	
 	render() {
+		console.log(this.props.style);
 		return <div 
 			ref = {this.rootRef = React.createRef()}
 			id = {this.props.id}
 			className = {((this.props.className||'')+" FitText").trim()}
-			style = {Object.assign(this.props.style,{overflow:'hidden'})}
+			style = {Object.assign((this.props.style)||{},{overflow:'hidden'})}
 		>{this.props.children}</div>;
 	}
-	
 	componentDidUpdate() {
 		this.update();
 	}
-	
 	componentDidMount() {
 		this.elms.root = this.rootRef.current;
 		this.update();
 		if (this.props.updateOnResize) window.addEventListener("resize", this.update);
 	}
-	
 	componentWillUnmount() {
 		clearTimeout(this.timer);
 		window.removeEventListener("resize", this.update);
