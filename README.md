@@ -38,7 +38,7 @@ An ultra lightweight React component that automatically fits text to the size of
 
 * <a id="Module"></a>**Module**
    
-   In ES6 the code example below imports the core animator library plus the SVG morph plugin.
+   In ES6 the code example below imports the Fit Text component.
    ```javascript
    import FitText from '@plutonium-js/react-fit-text';
    ```
