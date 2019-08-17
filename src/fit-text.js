@@ -14,7 +14,6 @@ export class FitText extends React.Component{
 		this.update = this.update.bind(this);
 	}
 	render() {
-		console.log(this.props.style);
 		return <div 
 			ref = {this.rootRef = React.createRef()}
 			id = {this.props.id}
